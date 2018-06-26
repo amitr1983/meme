@@ -32,6 +32,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     var memedImage: UIImage?
     
+    // Atrribute for text
     let memeTextAttributes:[NSAttributedString.Key: Any] = [
         NSAttributedString.Key(rawValue: NSAttributedString.Key.strokeColor.rawValue): UIColor.black,
         NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue): UIColor.white,
@@ -63,18 +64,12 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
     }
     
-    func hide_button(_ buttonname: String) {
-        if buttonname.lowercased() == "camera" {
-            cameraBtn.isEnabled = false
-        }
-        
-    }
-    
     //Hide status bar
     override var prefersStatusBarHidden: Bool {
         return true
     }
     
+    // Pick image from album
     @IBAction func tapAlbumBtn(_ sender: Any) {
         print("Album Button Pressed")
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
@@ -85,6 +80,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
     }
     
+    //Pick image from image capture
     @IBAction func tapCameraBtn(_ sender: Any) {
         print("Camera Button Pressed")
         myPickerController.delegate = self;
@@ -93,6 +89,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.present(myPickerController, animated: true, completion: nil)
     }
     
+    // Handle cancel button on camera
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         myPickerController.dismiss(animated: true, completion: nil)
     }
@@ -103,6 +100,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         myPickerController.dismiss(animated: true, completion: nil)
     }
     
+    // Hide button based on condition
     func hide_btn() {
         if !UIImagePickerController.isSourceTypeAvailable(.camera) {
             cameraBtn.isEnabled = false
@@ -127,6 +125,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         view.frame.origin.y = 0
     }
     
+    //Get keyboard height
     func getKeyboardHeight(_ notification:Notification) -> CGFloat {
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue
@@ -143,6 +142,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    // Clear image and reset default text
     @IBAction func tapClearBtn(_ sender: Any) {
         myView.image = nil
         bottomlabel.text = "BOTTOM"
@@ -150,6 +150,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         hide_btn()
     }
     
+    // tap on Share button. It will open activity view with few sharing/saving options
     @IBAction func tapShareBtn(_ sender: Any) {
         // generate memed image
         let memeImage = generateMemedImage()
@@ -157,7 +158,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         let activityViewController = UIActivityViewController(activityItems: [memedImage!], applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view
-        activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
+
         activityViewController.completionWithItemsHandler =      { (activity, success, items, error) in
             if(success && error == nil){
                 self.save()
@@ -170,11 +171,13 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         present(activityViewController, animated: true, completion: nil)
     }
     
+    // Save meme
     func save() {
         // Create the meme
         _ = Meme(topText: topLabel.text!, bottomText: bottomlabel.text!, orginalImage: myView.image!, memedImage: memedImage!)
     }
     
+    // Create meme
     func generateMemedImage() -> UIImage {
         
         self.navBar.isHidden = true
@@ -192,6 +195,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
 }
 
+// Handle textfield events
 extension HomeViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
