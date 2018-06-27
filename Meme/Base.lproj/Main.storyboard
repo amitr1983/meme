@@ -92,14 +92,14 @@
                     </view>
                     <connections>
                         <outlet property="albumBtn" destination="2le-JQ-V0L" id="51m-lN-SfY"/>
-                        <outlet property="bottomlabel" destination="dA5-y0-uJS" id="St7-NB-dZG"/>
+                        <outlet property="bottomTextfield" destination="dA5-y0-uJS" id="BMC-qZ-sab"/>
                         <outlet property="cameraBtn" destination="12U-Oz-gRw" id="D5Q-Y8-6iY"/>
                         <outlet property="clearBtn" destination="iyu-C0-gpg" id="bMf-ys-V7d"/>
                         <outlet property="myView" destination="xhd-sQ-NGn" id="W6x-BI-4Jf"/>
                         <outlet property="navBar" destination="I3K-xt-k0r" id="4Ev-qg-43N"/>
                         <outlet property="shareBtn" destination="lEI-cR-y7m" id="bGe-9c-rly"/>
                         <outlet property="toolBar" destination="3pm-YU-sNs" id="Sxq-o0-uD2"/>
-                        <outlet property="topLabel" destination="d40-ks-hEo" id="XyB-30-scG"/>
+                        <outlet property="topTextfield" destination="d40-ks-hEo" id="Iob-Ue-MXm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -20,9 +20,9 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     @IBOutlet weak var cameraBtn: UIBarButtonItem!
     
-    @IBOutlet weak var topLabel: UITextField!
+    @IBOutlet weak var topTextfield: UITextField!
     
-    @IBOutlet weak var bottomlabel: UITextField!
+    @IBOutlet weak var bottomTextfield: UITextField!
     
     @IBOutlet weak var navBar: UINavigationBar!
     
@@ -43,20 +43,18 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        setTextValue(position: "top", value: "top")
-        setTextValue(position: "bottom", value: "bottom")
-        topLabel.defaultTextAttributes = memeTextAttributes
-        bottomlabel.defaultTextAttributes = memeTextAttributes
-        topLabel.delegate = self
-        bottomlabel.delegate = self
-        topLabel.textAlignment = .center
-        bottomlabel.textAlignment = .center
+        topTextfield.text = "TOP"
+        bottomTextfield.text = "BOTTOM"
+        setStyle(toTextField: topTextfield)
+        setStyle(toTextField: bottomTextfield)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true);
         hide_btn()
         subscribeToKeyboardNotifications()
+        setStyle(toTextField: topTextfield)
+        setStyle(toTextField: bottomTextfield)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -110,7 +108,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     @objc func keyboardWillShow(_ notification:Notification) {
-        if self.bottomlabel.isFirstResponder {
+        if self.bottomTextfield.isFirstResponder {
             view.frame.origin.y = -getKeyboardHeight(notification)
         }
     }
@@ -139,8 +137,8 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     // Clear image and reset default text
     @IBAction func tapClearBtn(_ sender: Any) {
         myView.image = nil
-        setTextValue(position: "top", value: "top")
-        setTextValue(position: "bottom", value: "bottom")
+        topTextfield.text = "TOP"
+        bottomTextfield.text = "BOTTOM"
         hide_btn()
     }
     
@@ -168,7 +166,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     // Save meme
     func save() {
         // Create the meme
-        _ = Meme(topText: topLabel.text!, bottomText: bottomlabel.text!, orginalImage: myView.image!, memedImage: memedImage!)
+        _ = Meme(topText: topTextfield.text!, bottomText: bottomTextfield.text!, orginalImage: myView.image!, memedImage: memedImage!)
     }
     
     // Create meme
@@ -187,14 +185,6 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         return memedImage
     }
     
-    func setTextValue(position: String, value: String) {
-        if position.lowercased() == "top" {
-            topLabel.text = value.uppercased()
-        } else {
-            bottomlabel.text = value.uppercased()
-        }
-    }
-    
     func selectPicker(sourcetype: UIImagePickerControllerSourceType) {
         if UIImagePickerController.isSourceTypeAvailable(sourcetype){
             myPickerController.delegate = self;
@@ -202,6 +192,14 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             myPickerController.allowsEditing = false
             self.present(myPickerController, animated: true, completion: nil)
         }
+    }
+    
+    func setStyle(toTextField textField: UITextField) {
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.textAlignment = .center
+        textField.textAlignment = NSTextAlignment.center
+        textField.autocapitalizationType = .allCharacters
+        textField.delegate = self
     }
     
 }
