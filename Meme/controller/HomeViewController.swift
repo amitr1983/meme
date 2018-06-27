@@ -49,6 +49,8 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         bottomlabel.defaultTextAttributes = memeTextAttributes
         topLabel.delegate = self
         bottomlabel.delegate = self
+        topLabel.textAlignment = .center
+        bottomlabel.textAlignment = .center
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="Meme" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="3pm-YU-sNs">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                            <toolbar autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" verticalHuggingPriority="252" translatesAutoresizingMaskIntoConstraints="NO" id="3pm-YU-sNs">
+                                <rect key="frame" x="0.0" y="436" width="320" height="44"/>
                                 <items>
                                     <barButtonItem title="Album" id="2le-JQ-V0L">
                                         <connections>
@@ -35,7 +35,7 @@
                                 </items>
                             </toolbar>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3K-xt-k0r">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
                                     <navigationItem id="QBh-td-tz8">
                                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="lEI-cR-y7m">
@@ -52,16 +52,16 @@
                                 </items>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xhd-sQ-NGn">
-                                <rect key="frame" x="0.0" y="44" width="375" height="579"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="392"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dA5-y0-uJS">
-                                <rect key="frame" x="183.5" y="556" width="8" height="17"/>
+                                <rect key="frame" x="20" y="369" width="280" height="17"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d40-ks-hEo">
-                                <rect key="frame" x="137" y="96" width="100" height="20"/>
+                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d40-ks-hEo">
+                                <rect key="frame" x="20" y="96" width="280" height="17"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
@@ -71,19 +71,22 @@
                         <constraints>
                             <constraint firstItem="dA5-y0-uJS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0e5-NV-pf3"/>
                             <constraint firstItem="I3K-xt-k0r" firstAttribute="trailing" secondItem="xhd-sQ-NGn" secondAttribute="trailing" id="9A8-cF-6lN"/>
-                            <constraint firstItem="3pm-YU-sNs" firstAttribute="top" secondItem="xhd-sQ-NGn" secondAttribute="bottom" id="A7j-Af-b3q"/>
                             <constraint firstItem="I3K-xt-k0r" firstAttribute="leading" secondItem="xhd-sQ-NGn" secondAttribute="leading" id="BsZ-AY-mYe"/>
+                            <constraint firstItem="dA5-y0-uJS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Dfg-aB-yvH"/>
                             <constraint firstItem="d40-ks-hEo" firstAttribute="top" secondItem="I3K-xt-k0r" secondAttribute="bottom" constant="52" id="I4d-pH-Mjk"/>
                             <constraint firstItem="I3K-xt-k0r" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="I4q-7Y-IlX"/>
                             <constraint firstItem="d40-ks-hEo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Jgh-f8-2OU"/>
+                            <constraint firstItem="d40-ks-hEo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Kw5-19-9fC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dA5-y0-uJS" secondAttribute="trailing" constant="20" id="Moy-mw-8M7"/>
                             <constraint firstItem="3pm-YU-sNs" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="NM1-zt-8ea"/>
-                            <constraint firstItem="d40-ks-hEo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VlZ-Ag-YcS"/>
+                            <constraint firstItem="xhd-sQ-NGn" firstAttribute="bottom" secondItem="3pm-YU-sNs" secondAttribute="top" id="QyQ-Uv-Fh6"/>
                             <constraint firstItem="xhd-sQ-NGn" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="bUu-SH-Nqh"/>
                             <constraint firstItem="xhd-sQ-NGn" firstAttribute="top" secondItem="I3K-xt-k0r" secondAttribute="bottom" id="eUG-Nw-ndA"/>
                             <constraint firstItem="3pm-YU-sNs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mvV-Cn-2EE"/>
                             <constraint firstItem="3pm-YU-sNs" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="oCH-ep-BmB"/>
                             <constraint firstItem="xhd-sQ-NGn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pmA-c9-lZL"/>
-                            <constraint firstItem="3pm-YU-sNs" firstAttribute="top" secondItem="dA5-y0-uJS" secondAttribute="bottom" constant="50" id="sDk-lK-G9h"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="d40-ks-hEo" secondAttribute="trailing" constant="20" id="s3Y-kt-Uqz"/>
+                            <constraint firstItem="3pm-YU-sNs" firstAttribute="top" secondItem="dA5-y0-uJS" secondAttribute="bottom" constant="50" id="wEa-OI-MhQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -101,7 +104,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="133.59999999999999" y="131.78410794602701"/>
+            <point key="canvasLocation" x="133.125" y="131.25"/>
         </scene>
     </scenes>
 </document>
