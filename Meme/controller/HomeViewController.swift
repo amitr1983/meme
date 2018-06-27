@@ -43,8 +43,8 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        topLabel.text = "TOP"
-        bottomlabel.text = "BOTTOM"
+        setTextValue(position: "top", value: "top")
+        setTextValue(position: "bottom", value: "bottom")
         topLabel.defaultTextAttributes = memeTextAttributes
         bottomlabel.defaultTextAttributes = memeTextAttributes
         topLabel.delegate = self
@@ -72,21 +72,13 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     // Pick image from album
     @IBAction func tapAlbumBtn(_ sender: Any) {
         print("Album Button Pressed")
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
-            myPickerController.delegate = self;
-            myPickerController.sourceType = .photoLibrary
-            myPickerController.allowsEditing = true
-            self.present(myPickerController, animated: true, completion: nil)
-        }
+        selectPicker(sourcetype: .photoLibrary)
     }
     
     //Pick image from image capture
     @IBAction func tapCameraBtn(_ sender: Any) {
         print("Camera Button Pressed")
-        myPickerController.delegate = self;
-        myPickerController.sourceType = .camera
-        myPickerController.allowsEditing = false
-        self.present(myPickerController, animated: true, completion: nil)
+        selectPicker(sourcetype: .camera)
     }
     
     // Handle cancel button on camera
@@ -145,8 +137,8 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     // Clear image and reset default text
     @IBAction func tapClearBtn(_ sender: Any) {
         myView.image = nil
-        bottomlabel.text = "BOTTOM"
-        topLabel.text = "TOP"
+        setTextValue(position: "top", value: "top")
+        setTextValue(position: "bottom", value: "bottom")
         hide_btn()
     }
     
@@ -191,6 +183,23 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.toolBar.isHidden = false
         
         return memedImage
+    }
+    
+    func setTextValue(position: String, value: String) {
+        if position.lowercased() == "top" {
+            topLabel.text = value.uppercased()
+        } else {
+            bottomlabel.text = value.uppercased()
+        }
+    }
+    
+    func selectPicker(sourcetype: UIImagePickerControllerSourceType) {
+        if UIImagePickerController.isSourceTypeAvailable(sourcetype){
+            myPickerController.delegate = self;
+            myPickerController.sourceType = sourcetype
+            myPickerController.allowsEditing = false
+            self.present(myPickerController, animated: true, completion: nil)
+        }
     }
     
 }
