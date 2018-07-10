@@ -137,10 +137,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     // Clear image and reset default text
     @IBAction func tapClearBtn(_ sender: Any) {
-        myView.image = nil
-        topTextfield.text = "TOP"
-        bottomTextfield.text = "BOTTOM"
-        hide_btn()
+        dismiss(animated: true, completion: nil)
     }
     
     // tap on Share button. It will open activity view with few sharing/saving options
@@ -176,17 +173,21 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     // Create meme
     func generateMemedImage() -> UIImage {
         
-        self.navBar.isHidden = true
+        hideTabNavBar(true)
         self.toolBar.isHidden = true
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
-        self.navBar.isHidden = false
-        self.toolBar.isHidden = false
+        hideTabNavBar(false)
         
         return memedImage
+    }
+    
+    func hideTabNavBar(_ isBoolean: Bool) {
+        self.navBar.isHidden = isBoolean
+        self.toolBar.isHidden = isBoolean
     }
     
     func selectPicker(sourcetype: UIImagePickerControllerSourceType) {

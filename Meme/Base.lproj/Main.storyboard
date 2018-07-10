@@ -76,9 +76,7 @@
                     <navigationItem key="navigationItem" id="Mr8-QV-3l2">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="nJS-F8-FIE">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="popoverPresentation" popoverAnchorBarButtonItem="nJS-F8-FIE" id="TqG-C5-MHW">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
+                                <segue destination="BYZ-38-t0r" kind="showDetail" id="TqG-C5-MHW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -193,7 +191,7 @@
                                                 <action selector="tapShareBtn:" destination="BYZ-38-t0r" id="wVz-FJ-MLP"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Clear" id="iyu-C0-gpg">
+                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="iyu-C0-gpg">
                                             <connections>
                                                 <action selector="tapClearBtn:" destination="BYZ-38-t0r" id="5t1-du-TDy"/>
                                             </connections>
@@ -266,7 +264,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ft7-Ze-cdH">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ft7-Ze-cdH">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SU9-xw-Sde">

@@ -58,7 +58,7 @@ class MemeTableViewController: UITableViewController {
         let memeDetail = object.memes[indexPath.item]
         memeDetailVC.memeDetails = memeDetail
         
-        show(memeDetailVC, sender: self)
+        navigationController?.pushViewController(memeDetailVC, animated: true)
     }
 
 }

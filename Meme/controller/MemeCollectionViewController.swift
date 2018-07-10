@@ -61,7 +61,7 @@ class MemeCollectionViewController: UICollectionViewController {
         let memeDetail = object.memes[indexPath.item]
         memeDetailVC.memeDetails = memeDetail
 
-        show(memeDetailVC, sender: self)
+        navigationController?.pushViewController(memeDetailVC, animated: true)
     }
     
     // Set spacing & dimension for collection tiles in both portrait and landscape view
