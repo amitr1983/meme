@@ -167,7 +167,10 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     // Save meme
     func save() {
         // Create the meme
-        _ = Meme(topText: topTextfield.text!, bottomText: bottomTextfield.text!, orginalImage: myView.image!, memedImage: memedImage!)
+        let meme = Meme(topText: topTextfield.text!, bottomText: bottomTextfield.text!, orginalImage: myView.image!, memedImage: memedImage!)
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.memes.append(meme)
     }
     
     // Create meme
