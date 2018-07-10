@@ -218,7 +218,6 @@
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dA5-y0-uJS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0e5-NV-pf3"/>
                             <constraint firstItem="I3K-xt-k0r" firstAttribute="trailing" secondItem="xhd-sQ-NGn" secondAttribute="trailing" id="9A8-cF-6lN"/>
