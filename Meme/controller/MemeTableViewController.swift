@@ -14,11 +14,6 @@ class MemeTableViewController: UITableViewController {
     @IBOutlet var memetableView: UITableView!
     
     var memes: [Meme]!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -28,11 +23,6 @@ class MemeTableViewController: UITableViewController {
         
         // Reload table data
         tableView!.reloadData()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
